@@ -1,0 +1,21 @@
+footer a {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Validaciones */
+
+.help-block {
+  color: #dc3545;
+}
+
+.help-block::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  content: "\f556";
+}
