@@ -29,7 +29,7 @@ class Curso
         return $this->nombre;
     }
 
-    public function getDescrpcion()
+    public function getDescripcion()
     {
         return $this->descripcion;
     }
@@ -119,7 +119,7 @@ class Curso
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO cursos (nombre, descripcion, modalidad, cursodeshabilitado) VALUES ('" . $this->getNombre() . "','" . $this->getDescrpcion() . "','" . $this->getModalidad() . "','0000-00-00 00:00:00');";
+        $sql = "INSERT INTO cursos (nombre, descripcion, modalidad, cursodeshabilitado) VALUES ('" . $this->getNombre() . "','" . $this->getDescripcion() . "','" . $this->getModalidad() . "','0000-00-00 00:00:00');";
 
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)) {
@@ -139,7 +139,7 @@ class Curso
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE cursos SET nombre= '" . $this->getNombre() . "', descripcion= '" . $this->getDescrpcion() . "', modalidad= '" . $this->getModalidad() . ", cursodeshabilitado='0000-00-00 00:00:00' WHERE id='" . $this->getId();
+        $sql = "UPDATE cursos SET nombre= '" . $this->getNombre() . "', descripcion= '" . $this->getDescripcion() . "', modalidad= '" . $this->getModalidad() . ", cursodeshabilitado='0000-00-00 00:00:00' WHERE id='" . $this->getId();
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
