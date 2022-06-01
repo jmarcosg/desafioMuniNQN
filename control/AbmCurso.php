@@ -113,7 +113,7 @@ class AbmCurso
         return $resp;
     }
 
-    //Hace un borrado logico del usuario. 
+    //Hace un borrado logico del curso. 
     //En caso de que ya estuviese deshabilitado, lo vuelve a habilitar.
     public function deshabilitarCurso($param)
     {
