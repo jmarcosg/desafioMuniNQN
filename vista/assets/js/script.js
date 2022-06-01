@@ -8,7 +8,7 @@ $(document).ready(function () {
   $.ajax({
     type: "GET",
     dataType: "json",
-    url: "http://localhost/desafioMuniNQN/control/consultaUsuarios.php",
+    url: "http://desafiomuninqn.test/control/consultaUsuarios.php",
     success: function (resp) {
       // console.log(resp);
       if (resp.length > 0) {
@@ -36,7 +36,7 @@ $(document).ready(function () {
           };
           $.ajax({
             type: "POST",
-            url: "http://localhost/desafioMuniNQN/vista/acciones/accionNuevoUsuario.php",
+            url: "http://desafiomuninqn.test/vista/acciones/accionNuevoUsuario.php",
             data: datos,
             success: function (r) {
               console.log(r);

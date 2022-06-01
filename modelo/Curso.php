@@ -139,7 +139,7 @@ class Curso
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE cursos SET nombre= '" . $this->getNombre() . "', descripcion= '" . $this->getDescrpcion() . "', modalidad= '" . $this->getModalidad() . "', cursodeshabilitado= '" . $this->getCursoDeshabilitado() . "' WHERE id=" . $this->getId();
+        $sql = "UPDATE cursos SET nombre= '" . $this->getNombre() . "', descripcion= '" . $this->getDescrpcion() . "', modalidad= '" . $this->getModalidad() . ", cursodeshabilitado='0000-00-00 00:00:00' WHERE id='" . $this->getId();
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {

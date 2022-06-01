@@ -42,12 +42,13 @@ include_once '../estructura/header.php';
 
             <div class="">
                 <div class="form-floating mt-3">
-                    <select class="form-select" name="genero" id="genero">
+                    <select class="form-select" name="genero" id="genero" required>
                         <option value="" selected disabled>Seleccione su género</option>
                         <option value="MASCULINO">Masculino</option>
                         <option value="FEMENINO">Femenino</option>
                         <option value="OTRO">Otro</option>
                     </select>
+                    <label for="genero">Género</label>
                 </div>
             </div>
 

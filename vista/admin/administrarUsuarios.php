@@ -1,8 +1,6 @@
 <?php
 include_once '../../configuracion.php';
 
-$datos = data_submitted();
-
 $titulo = 'Administración de Usuarios';
 
 $abmUsuario = new AbmUsuario();
@@ -22,13 +20,13 @@ include_once '../estructura/header.php';
     <section class="py-2">
         <div class="">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <table class="table align-middle">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col" class='text-center'>Razon Social</th>
-                            <th scope="col" class='text-center'>DNI</th>
-                            <th scope='col' class='text-center'>Genero</th>
-                            <th scope="col" class='text-center'>Edad</th>
+                <table id="listadoUsuarios" class="table table-light table-hover" style="width:100%">
+                    <thead>
+                        <tr class="text-light">
+                            <th class="bg-secondary">Razón Social</th>
+                            <th class="bg-secondary">DNI</th>
+                            <th class="bg-secondary">Género</th>
+                            <th class="bg-secondary">Edad</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,21 +34,19 @@ include_once '../estructura/header.php';
                         foreach ($listadoUsuarios as $usuario) {
                         ?>
                             <tr>
-                                <td scope="row" class="text-center"><?php echo $usuario->getRazonSocial() ?></td>
-                                <td scope="row" class="text-center"><?php echo $usuario->getDni() ?></td>
-                                <td scope="row" class="text-center"><?php echo $usuario->getGenero() ?></td>
-                                <td scope="row" class="text-center"><?php echo $usuario->getEdad() ?></td>
-                            <?php
-                        }
-                            ?>
+                                <td class="text-center"><?php echo $usuario->getRazonSocial() ?></td>
+                                <td class="text-center"><?php echo $usuario->getDni() ?></td>
+                                <td class="text-center"><?php echo $usuario->getGenero() ?></td>
+                                <td class="text-center"><?php echo $usuario->getEdad() ?></td>
                             </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
-    <!-- <section class="py-2">
-    </section> -->
 </div>
 
 <?php

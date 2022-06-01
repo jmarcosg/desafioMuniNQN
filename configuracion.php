@@ -7,7 +7,7 @@
 // CONFIGURACION APP//
 /////////////////////////////
 
-$PROYECTO = 'desafioMuniNQN';
+$PROYECTO = '';
 
 //variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";
@@ -21,4 +21,3 @@ $INICIO = "Location:http://" . $_SERVER['HTTP_HOST'] . "/$PROYECTO/vista/login/l
 $PRINCIPAL = "Location:http://" . $_SERVER['HTTP_HOST'] . "/$PROYECTO/principal.php";
 
 $GLOBALS['ROOT'] = $ROOT;
-$GLOBALS['IMGS'] = $ROOT . "uploads/img/";
