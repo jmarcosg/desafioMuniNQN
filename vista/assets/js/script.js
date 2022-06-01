@@ -10,7 +10,6 @@ $(document).ready(function () {
     dataType: "json",
     url: "http://desafiomuninqn.test/control/consultaUsuarios.php",
     success: function (resp) {
-      // console.log(resp);
       if (resp.length > 0) {
         $("#botonPoblado").hide();
       }
@@ -39,10 +38,10 @@ $(document).ready(function () {
             url: "http://desafiomuninqn.test/vista/acciones/accionNuevoUsuario.php",
             data: datos,
             success: function (r) {
-              console.log(r);
+              // console.log(r);
             },
             error: function (r) {
-              console.log(r);
+              // console.log(r);
             },
           });
         });
