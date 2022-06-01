@@ -5,6 +5,8 @@ $titulo = 'Administración de Usuarios';
 
 $abmUsuario = new AbmUsuario();
 $listadoUsuarios = $abmUsuario->buscar(null);
+$abmCurso = new AbmCurso();
+$listadoCursos = $abmCurso->buscar(null);
 
 include_once '../estructura/header.php';
 ?>
@@ -23,10 +25,12 @@ include_once '../estructura/header.php';
                 <table id="listadoUsuarios" class="table table-light table-hover" style="width:100%">
                     <thead>
                         <tr class="text-light">
-                            <th class="bg-secondary">Razón Social</th>
-                            <th class="bg-secondary">DNI</th>
-                            <th class="bg-secondary">Género</th>
-                            <th class="bg-secondary">Edad</th>
+                            <th class="bg-secondary text-center">Razón Social</th>
+                            <th class="bg-secondary text-center">DNI</th>
+                            <th class="bg-secondary text-center">Género</th>
+                            <th class="bg-secondary text-center">Edad</th>
+                            <th class="bg-secondary text-center">Curso Grupal</th>
+                            <th class="bg-secondary text-center">Curso Individual</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +42,34 @@ include_once '../estructura/header.php';
                                 <td class="text-center"><?php echo $usuario->getDni() ?></td>
                                 <td class="text-center"><?php echo $usuario->getGenero() ?></td>
                                 <td class="text-center"><?php echo $usuario->getEdad() ?></td>
+                                <td class="text-center">
+                                    <select class="form-select" name="cursoGrupal" id="cursoGrupal" required>
+                                        <option value="" selected disabled>Seleccione un curso</option>
+                                        <?php
+                                        foreach ($listadoCursos as $curso) {
+                                            if ($curso->getModalidad() == "Grupal") {
+                                        ?>
+                                                <option value='<?php echo $curso->getId() ?>'><?php echo $curso->getNombre() ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
+                                <td class="text-center">
+                                    <select class="form-select" name="cursoIndividual" id="cursoIndividual" required>
+                                        <option value="" selected disabled>Seleccione un curso</option>
+                                        <?php
+                                        foreach ($listadoCursos as $curso) {
+                                            if ($curso->getModalidad() == "Individual") {
+                                        ?>
+                                                <option value='<?php echo $curso->getId() ?>'><?php echo $curso->getNombre() ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
                             </tr>
                         <?php
                         }

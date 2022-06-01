@@ -44,8 +44,8 @@ include_once '../estructura/header.php';
                 <div class="form-floating mt-3">
                     <select class="form-select" name="modalidad" id="modalidad" required>
                         <option value="" selected disabled>Seleccione la modalidad</option>
-                        <option value="INDIVIDUAL">Individual</option>
-                        <option value="GRUPAL">Grupal</option>
+                        <option value="Grupal">Grupal</option>
+                        <option value="Individual">Individual</option>
                     </select>
                     <label for="modalidad">Modalidad</label>
                 </div>

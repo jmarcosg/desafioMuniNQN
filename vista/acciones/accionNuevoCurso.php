@@ -3,7 +3,7 @@ include_once "../../configuracion.php";
 
 $datos = data_submitted();
 
-print_r($datos);
+// print_r($datos);
 
 $abmCurso = new AbmCurso();
 
