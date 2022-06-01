@@ -43,7 +43,7 @@ include_once '../../configuracion.php';
                                 <hr class="dropdown-divider" />
                             </li>
                             <li><a class="dropdown-item" href="#">Listar Cursos</a></li>
-                            <li><a class="dropdown-item" href="#">Listar Usuarios</a></li>
+                            <li><a class="dropdown-item" href="../admin/administrarUsuarios.php">Listar Usuarios</a></li>
                         </ul>
                     </li>
                 </ul>
