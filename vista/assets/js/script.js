@@ -1,17 +1,25 @@
 const endpoint = "https://weblogin.muninqn.gov.ar/api/Examen";
 
 $(document).ready(function () {
+  /**
+   * Consulto en la base de datos si la tabla usuarios tiene más de una fila
+   * De ser así, oculto el boton de poblar esta tabla
+   */
   $.ajax({
     type: "GET",
     dataType: "json",
     url: "http://localhost/desafioMuniNQN/control/consultaUsuarios.php",
     success: function (resp) {
-      console.log(resp);
+      // console.log(resp);
       if (resp.length > 0) {
         $("#botonPoblado").hide();
       }
     },
   });
+
+  /**
+   * Pueblo la tabla de usarios en la base de datos con los datos de la API
+   */
   $("#poblarListado").on("click", function () {
     $.ajax({
       type: "GET",
