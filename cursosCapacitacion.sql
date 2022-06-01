@@ -15,13 +15,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cursos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `descripcion` varchar(256) NOT NULL,
+  `id` varchar(50) NOT NULL,
+  `nombre` varchar(250) NOT NULL,
+  `descripcion` varchar(356) NOT NULL,
   `modalidad` varchar(25) NOT NULL,
   `cursodeshabilitado` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cursos`
+--
+
+INSERT INTO `cursos` (`id`, `nombre`, `descripcion`, `modalidad`, `cursodeshabilitado`) VALUES
+('HTML2022', 'Curso HTML', 'Dale estructura a tus páginas web', 'Grupal', '0000-00-00 00:00:00'),
+('CSS2022', 'Curso CSS', 'Ponele estilo a tus páginas web', 'Grupal', '0000-00-00 00:00:00'),
+('JS2022', 'Curso JavaScript', 'Hacé mágia en tus páginas web', 'Grupal', '0000-00-00 00:00:00'),
+('PHP2022', 'Curso PHP', 'Seguimos resistiendo', 'Individual', '0000-00-00 00:00:00');
 
 --
 -- Table structure for table `usuarios`
@@ -43,7 +53,7 @@ CREATE TABLE `usuarios` (
 CREATE TABLE `registrados` (
   `id` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
-  `idcurso` int(11) NOT NULL,
+  `idcurso` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`id`),
   FOREIGN KEY (`idcurso`) REFERENCES `cursos` (`id`)
