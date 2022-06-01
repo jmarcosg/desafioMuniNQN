@@ -42,11 +42,14 @@ include_once '../../configuracion.php';
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="#">Listar Cursos</a></li>
+                            <li><a class="dropdown-item" href="../admin/administrarCursos.php">Listar Cursos</a></li>
                             <li><a class="dropdown-item" href="../admin/administrarUsuarios.php">Listar Usuarios</a></li>
                         </ul>
                     </li>
                 </ul>
+                <div class="navbar-nav ms-auto">
+                    <a class="text-dark fs-4" href="https://github.com/jmarcosg/desafioMuniNQN"><i class="fab fa-github"></i></a>
+                </div>
             </div>
         </div>
     </nav>

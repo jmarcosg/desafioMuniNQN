@@ -1,7 +1,7 @@
 <!-- Pie redirect index php htdocs -->
 <footer class="bg-dark mt-auto">
     <div class="text-center text-white py-2">
-        <a class="text-white" href="https://github.com/jmarcosg/desafioMuniNQN">Desarrollado por Juan Marcos Gonzalez</a>
+        <a class="text-white" href="https://github.com/jmarcosg/desafioMuniNQN">Derrollado por Gonzalez, Juan Marcos</a>
     </div>
 </footer>
 
