@@ -16,3 +16,5 @@ Emitir un reporte por pantalla de personas por curso.
 - Obtener cantidad de mujeres y hombres.
 - Obtener cantidad de menores y mayores de edad.
 
+![](https://cdn.discordapp.com/attachments/938426490847117352/981781236626358313/Logo-SMGP-FI.png)
+
