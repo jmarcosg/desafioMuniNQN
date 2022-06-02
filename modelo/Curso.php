@@ -2,6 +2,7 @@
 class Curso
 {
     private $id;
+    private $legajo;
     private $nombre;
     private $descripcion;
     private $modalidad;
@@ -11,6 +12,7 @@ class Curso
     public function __construct()
     {
         $this->id = "";
+        $this->legajo = "";
         $this->nombre = "";
         $this->descripcion = "";
         $this->modalidad = "";
@@ -22,6 +24,11 @@ class Curso
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getLegajo()
+    {
+        return $this->legajo;
     }
 
     public function getNombre()
@@ -56,6 +63,12 @@ class Curso
         return $this;
     }
 
+    public function setLegajo($legajo)
+    {
+        $this->legajo = $legajo;
+        return $this;
+    }
+
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -85,13 +98,14 @@ class Curso
         $this->mensajeOperacion = $mensajeOperacion;
     }
 
-    public function setear($id, $nombre, $descripcion, $modalidad, $cursoDeshabilitado)
+    public function setear($id, $legajo, $nombre, $descripcion, $modalidad)
     {
         $this->setId($id);
+        $this->setLegajo($legajo);
         $this->setNombre($nombre);
         $this->setDescripcion($descripcion);
         $this->setModalidad($modalidad);
-        $this->setCursoDeshabilitado($cursoDeshabilitado);
+        $this->setCursoDeshabilitado('1990-01-01 00:00:00');
     }
 
     public function cargar()
@@ -105,7 +119,7 @@ class Curso
             if ($res > -1) {
                 if ($res > 0) {
                     $row = $base->Registro();
-                    $this->setear($row['id'], $row['nombre'], $row['descripcion'], $row['modalidad'], $row['cursodeshabilitado']);
+                    $this->setear($row['id'], $row['legajo'], $row['nombre'], $row['descripcion'], $row['modalidad'], $row['cursodeshabilitado']);
                 }
             }
         } else {
@@ -119,7 +133,8 @@ class Curso
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO cursos (nombre, descripcion, modalidad, cursodeshabilitado) VALUES ('" . $this->getNombre() . "','" . $this->getDescripcion() . "','" . $this->getModalidad() . "','0000-00-00 00:00:00');";
+        $sql = "INSERT INTO cursos (legajo, nombre, descripcion, modalidad, cursodeshabilitado) VALUES ('" . $this->getLegajo() . "','" . $this->getNombre() . "','" . $this->getDescripcion() . "','" . $this->getModalidad() . "','1990-01-01 00:00:00');";
+        echo $sql;
 
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)) {
@@ -139,7 +154,7 @@ class Curso
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE cursos SET nombre= '" . $this->getNombre() . "', descripcion= '" . $this->getDescripcion() . "', modalidad= '" . $this->getModalidad() . ", cursodeshabilitado='0000-00-00 00:00:00' WHERE id='" . $this->getId();
+        $sql = "UPDATE cursos SET legajo= '" . $this->getLegajo() . "' nombre= '" . $this->getNombre() . "', descripcion= '" . $this->getDescripcion() . "', modalidad= '" . $this->getModalidad() . ", cursodeshabilitado='0000-00-00 00:00:00' WHERE id='" . $this->getId();
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
@@ -208,7 +223,7 @@ class Curso
             if ($res > 0) {
                 while ($row = $base->Registro()) {
                     $obj = new Curso();
-                    $obj->setear($row['id'], $row['nombre'], $row['descripcion'], $row['modalidad'], $row['cursodeshabilitado']);
+                    $obj->setear($row['id'], $row['legajo'], $row['nombre'], $row['descripcion'], $row['modalidad'], $row['cursodeshabilitado']);
                     array_push($arreglo, $obj);
                 }
             }

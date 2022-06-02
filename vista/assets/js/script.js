@@ -50,3 +50,20 @@ $(document).ready(function () {
     $("#poblarListado").hide();
   });
 });
+
+$(document).ready(function () {
+  $.ajax({
+    type: "GET",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    url: "http://desafiomuninqn.test/control/consultaInscripciones.php",
+    success: function (data) {
+      console.log(data);
+      let stats;
+      $.each(data, function (i, item) {
+        stats += `<tr><td>${item.nombreCurso}</td><td>${item.cantHombres}</td><td>${item.cantMujeres}</td><td>${item.cantOtros}</td><td>${item.total}</td><td>${item.cantMenores}</td><td>${item.cantMayores}</td></tr>`;
+      });
+      $("#estadisticas").append(stats);
+    },
+  });
+});

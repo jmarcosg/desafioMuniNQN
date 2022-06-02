@@ -33,7 +33,6 @@ include_once '../../configuracion.php';
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="../home/index.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../home/acerca.php">Acerca</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Operaciones</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -46,6 +45,8 @@ include_once '../../configuracion.php';
                             <li><a class="dropdown-item" href="../admin/administrarUsuarios.php">Listar Usuarios</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="../home/acerca.php">Estadísticas</a></li>
+
                 </ul>
                 <div class="navbar-nav ms-auto">
                     <a class="text-dark fs-4" href="https://github.com/jmarcosg/desafioMuniNQN"><i class="fab fa-github"></i></a>

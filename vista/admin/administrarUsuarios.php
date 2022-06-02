@@ -4,9 +4,12 @@ include_once '../../configuracion.php';
 $titulo = 'Administración de Usuarios';
 
 $abmUsuario = new AbmUsuario();
-$listadoUsuarios = $abmUsuario->buscar(null);
+$listadoUsuarios = $abmUsuario->buscar(['filtro' => 1]);
 $abmCurso = new AbmCurso();
 $listadoCursos = $abmCurso->buscar(null);
+$abmRegistrado = new AbmRegistrado();
+$listaRegistrados = $abmRegistrado->buscar(null);
+
 
 include_once '../estructura/header.php';
 ?>
@@ -31,47 +34,57 @@ include_once '../estructura/header.php';
                             <th class="bg-secondary text-center">Edad</th>
                             <th class="bg-secondary text-center">Curso Grupal</th>
                             <th class="bg-secondary text-center">Curso Individual</th>
+                            <th class="bg-secondary text-center"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $i = 0;
                         foreach ($listadoUsuarios as $usuario) {
+                            // if ($usuario->getId() != $listaRegistrados[$i]->getIdUsuario()) {
                         ?>
                             <tr>
-                                <td class="text-center"><?php echo $usuario->getRazonSocial() ?></td>
-                                <td class="text-center"><?php echo $usuario->getDni() ?></td>
-                                <td class="text-center"><?php echo $usuario->getGenero() ?></td>
-                                <td class="text-center"><?php echo $usuario->getEdad() ?></td>
-                                <td class="text-center">
-                                    <select class="form-select" name="cursoGrupal" id="cursoGrupal" required>
-                                        <option value="" selected disabled>Seleccione un curso</option>
-                                        <?php
-                                        foreach ($listadoCursos as $curso) {
-                                            if ($curso->getModalidad() == "Grupal") {
-                                        ?>
-                                                <option value='<?php echo $curso->getId() ?>'><?php echo $curso->getNombre() ?></option>
-                                        <?php
+                                <form method='post' action='../acciones/accionInscribirUsuario.php'>
+                                    <td class="text-center"><?php echo $usuario->getRazonSocial() ?></td>
+                                    <td class="text-center"><?php echo $usuario->getDni() ?></td>
+                                    <td class="text-center"><?php echo $usuario->getGenero() ?></td>
+                                    <td class="text-center"><?php echo $usuario->getEdad() ?></td>
+                                    <td class="text-center">
+                                        <select class="form-select" name="cursoGrupal" id="cursoGrupal" required>
+                                            <option value="" selected disabled>Seleccione un curso</option>
+                                            <?php
+                                            foreach ($listadoCursos as $curso) {
+                                                if ($curso->getModalidad() == "Grupal") {
+                                            ?>
+                                                    <option value='<?php echo $curso->getLegajo() ?>'><?php echo $curso->getNombre() ?></option>
+                                            <?php
+                                                }
                                             }
-                                        }
-                                        ?>
-                                    </select>
-                                </td>
-                                <td class="text-center">
-                                    <select class="form-select" name="cursoIndividual" id="cursoIndividual" required>
-                                        <option value="" selected disabled>Seleccione un curso</option>
-                                        <?php
-                                        foreach ($listadoCursos as $curso) {
-                                            if ($curso->getModalidad() == "Individual") {
-                                        ?>
-                                                <option value='<?php echo $curso->getId() ?>'><?php echo $curso->getNombre() ?></option>
-                                        <?php
+                                            ?>
+                                        </select>
+                                    </td>
+                                    <td class="text-center">
+                                        <select class="form-select" name="cursoIndividual" id="cursoIndividual" required>
+                                            <option value="" selected disabled>Seleccione un curso</option>
+                                            <?php
+                                            foreach ($listadoCursos as $curso) {
+                                                if ($curso->getModalidad() == "Individual") {
+                                            ?>
+                                                    <option value='<?php echo $curso->getLegajo() ?>'><?php echo $curso->getNombre() ?></option>
+                                            <?php
+                                                }
                                             }
-                                        }
-                                        ?>
-                                    </select>
-                                </td>
+                                            ?>
+                                        </select>
+                                    <td class='text-center'>
+                                        <input name='dni' id='dni' type='hidden' value='<?php echo $usuario->getDni() ?>'>
+                                        <button class='btn btn-warning btn-sm' type='submit' value='' role='button'><i class='bi bi-clipboard'></i>&nbsp;Inscribir</button>
+                                    </td>
+                                </form>
                             </tr>
                         <?php
+                            // }
+                            // $i++;
                         }
                         ?>
                     </tbody>

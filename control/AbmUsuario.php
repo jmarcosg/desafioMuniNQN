@@ -29,6 +29,10 @@ class AbmUsuario
             if (isset($param['edad'])) {
                 $where .= " and edad ='" . $param['edad'] . "'";
             }
+
+            if (isset($param['filtro'])) {
+                $where = " id NOT IN (SELECT idusuario FROM registrados)";
+            }
         }
         $arreglo = Usuario::seleccionar($where);
         return $arreglo;

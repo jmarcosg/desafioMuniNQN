@@ -14,6 +14,10 @@ class AbmCurso
                 $where .= " and id ='" . $param['id'] . "'";
             }
 
+            if (isset($param['legajo'])) {
+                $where .= " and legajo ='" . $param['legajo'] . "'";
+            }
+
             if (isset($param['nombre'])) {
                 $where .= " and nombre ='" . $param['nombre'] . "'";
             }
@@ -33,14 +37,14 @@ class AbmCurso
     private function cargarObjeto($param)
     {
         $objCurso = null;
-        if (array_key_exists('nombre', $param) && array_key_exists('descripcion', $param) && array_key_exists('modalidad', $param)) {
+        if (array_key_exists('legajo', $param) && array_key_exists('nombre', $param) && array_key_exists('descripcion', $param) && array_key_exists('modalidad', $param)) {
             $objCurso = new Curso();
             $objCurso->setear(
                 '',
+                $param['legajo'],
                 $param['nombre'],
                 $param['descripcion'],
-                $param['modalidad'],
-                ''
+                $param['modalidad']
             );
         }
         return $objCurso;
@@ -72,7 +76,7 @@ class AbmCurso
         $lista = $this->buscar(['id' => $param['id']]);
         if ($lista != null) {
             $objCurso = new Curso();
-            $objCurso->setear($param['id'], $param['nombre'], $param['descripcion'], $param['modalidad'], $param['cursodeshabilitado']);
+            $objCurso->setear($param['id'], $param['legajo'], $param['nombre'], $param['descripcion'], $param['modalidad'], $param['cursodeshabilitado']);
 
             if ($objCurso->modificar()) {
                 $resp = true;
@@ -100,7 +104,7 @@ class AbmCurso
     public function alta($param)
     {
         $resp = false;
-        $busquedaCurso = ["nombre" => $param['nombre'], "modalidad" => $param['modalidad']];
+        $busquedaCurso = ["legajo" => $param['legajo'], "nombre" => $param['nombre'], "modalidad" => $param['modalidad']];
         $existeCurso = $this->buscar($busquedaCurso);
 
         if ($existeCurso == null) {

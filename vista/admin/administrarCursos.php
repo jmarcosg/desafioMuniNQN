@@ -25,7 +25,7 @@ include_once '../estructura/header.php';
                 foreach ($listadoCursos as $curso) {
                     $deshabilitado = $curso->getCursoDeshabilitado();
 
-                    if ($deshabilitado == "0000-00-00 00:00:00") { ?>
+                    if ($deshabilitado === "1990-01-01 00:00:00") { ?>
                         <div class='col mb-5'>
                             <div class='card shadow h-100'>
                                 <?php
@@ -51,7 +51,7 @@ include_once '../estructura/header.php';
                                     <div class='text-center'>
                                         <form method='post' action=''>
                                             <td class='text-center'>
-                                                <input name='legajoCurso' id='legajoCurso' type='hidden' value='<?php echo $curso->getId() ?>'>
+                                                <input name='legajoCurso' id='legajoCurso' type='hidden' value='<?php echo $curso->getLegajo() ?>'>
                                                 <button class='btn btn-outline-dark mt-auto' type='submit' role='button'>Ver más</button>
                                             </td>
                                         </form>
