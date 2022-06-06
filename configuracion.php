@@ -7,7 +7,7 @@
 // CONFIGURACION APP//
 /////////////////////////////
 
-$PROYECTO = '';
+$PROYECTO = 'desafiomuninqn';
 
 //variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";

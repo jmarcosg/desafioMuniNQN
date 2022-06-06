@@ -37,7 +37,6 @@ if (mysqli_num_rows($sqlCursos) > 0) {
         $sqlCantMayores = mysqli_query($conexionBD, "SELECT COUNT(*) AS cantidad FROM registrados AS r INNER JOIN usuarios AS u ON u.id = r.idusuario WHERE r.idcurso = " . $idCurso . "  AND u.edad >= 18");
         $cantMayores = mysqli_fetch_all($sqlCantMayores, MYSQLI_ASSOC);
 
-
         $fila = [
             'nombreCurso' => $curso['nombre'],
             'cantHombres' => $cantHombres,

@@ -8,7 +8,7 @@ $(document).ready(function () {
   $.ajax({
     type: "GET",
     dataType: "json",
-    url: "http://desafiomuninqn.test/control/consultaUsuarios.php",
+    url: "http://localhost:8080/desafiomuninqn/consultaUsuarios.php",
     success: function (resp) {
       if (resp.length > 0) {
         $("#botonPoblado").hide();
@@ -35,7 +35,7 @@ $(document).ready(function () {
           };
           $.ajax({
             type: "POST",
-            url: "http://desafiomuninqn.test/vista/acciones/accionNuevoUsuario.php",
+            url: "http://localhost:8080/desafiomuninqn/vista/acciones/accionNuevoUsuario.php",
             data: datos,
             success: function (r) {
               // console.log(r);
@@ -56,14 +56,14 @@ $(document).ready(function () {
     type: "GET",
     contentType: "application/json; charset=utf-8",
     dataType: "json",
-    url: "http://desafiomuninqn.test/control/consultaInscripciones.php",
+    url: "http://localhost:8080/desafiomuninqn/control/consultaInscripciones.php",
     success: function (data) {
       console.log(data);
       let stats;
       $.each(data, function (i, item) {
         stats += `<tr><td>${item.nombreCurso}</td><td>${item.cantHombres}</td><td>${item.cantMujeres}</td><td>${item.cantOtros}</td><td>${item.total}</td><td>${item.cantMenores}</td><td>${item.cantMayores}</td></tr>`;
       });
-      $("#estadisticas").append(stats);
+      //$("#estadisticas").append(stats);
     },
   });
 });

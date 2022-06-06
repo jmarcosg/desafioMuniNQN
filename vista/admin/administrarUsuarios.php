@@ -50,7 +50,7 @@ include_once '../estructura/header.php';
                                     <td class="text-center"><?php echo $usuario->getGenero() ?></td>
                                     <td class="text-center"><?php echo $usuario->getEdad() ?></td>
                                     <td class="text-center">
-                                        <select class="form-select" name="cursoGrupal" id="cursoGrupal" required>
+                                        <select class="form-select" name="cursoGrupal" id="cursoGrupal">
                                             <option value="" selected disabled>Seleccione un curso</option>
                                             <?php
                                             foreach ($listadoCursos as $curso) {
@@ -64,7 +64,7 @@ include_once '../estructura/header.php';
                                         </select>
                                     </td>
                                     <td class="text-center">
-                                        <select class="form-select" name="cursoIndividual" id="cursoIndividual" required>
+                                        <select class="form-select" name="cursoIndividual" id="cursoIndividual">
                                             <option value="" selected disabled>Seleccione un curso</option>
                                             <?php
                                             foreach ($listadoCursos as $curso) {

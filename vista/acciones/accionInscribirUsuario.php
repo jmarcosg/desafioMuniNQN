@@ -9,7 +9,7 @@ $exito = $controlInscripcion->inscribirUsuario($datos);
 
 if ($exito) {
     $message = 'Se inscribio correctamente al usuario';
-    header("Location: ../home/index.php?Message=" . urlencode($message));
+    header("Location: ../home/acerca.php?Message=" . urlencode($message));
     exit;
 } else {
     $message = 'Hubo un error al inscribir al usuario';
